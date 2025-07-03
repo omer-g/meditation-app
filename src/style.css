@@ -1,0 +1,14 @@
+.duration {
+    display: inline-flex;
+    gap: 10px;
+    transition-duration: 1s;
+}
+
+.play {
+    opacity: 1;
+    transition-duration: 1s;
+}
+
+.play.hide {
+    opacity: 0;
+}
