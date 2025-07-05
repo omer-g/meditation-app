@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.offlinemeditationtimer.app',
-  appName: 'Offline Meditation Timer',
+  appId: 'com.meditationgong.app',
+  appName: 'Meditation Gong',
   webDir: 'dist'
 };
 

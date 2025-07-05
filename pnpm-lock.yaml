@@ -17,6 +17,9 @@ importers:
       '@capacitor/core':
         specifier: ^7.4.0
         version: 7.4.0
+      '@capacitor/preferences':
+        specifier: ^7.0.1
+        version: 7.0.1(@capacitor/core@7.4.0)
       '@mantine/core':
         specifier: 8.1.2
         version: 8.1.2(@mantine/hooks@8.1.2(react@19.1.0))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -159,6 +162,11 @@ packages:
 
   '@capacitor/core@7.4.0':
     resolution: {integrity: sha512-P6NnjoHyobZgTjynlZSn27d0SUj6j38inlNxFnKZr9qwU7/r6+0Sg2nWkGkIH/pMmXHsvGD8zVe6KUq1UncIjA==}
+
+  '@capacitor/preferences@7.0.1':
+    resolution: {integrity: sha512-XF9jOHzvoIBZLwZr/EX6aVaUO1d8Mx7TwBLQS33pYHOliCW5knT5KUkFOXNNYxh9qqODYesee9xuQIKNJpQBag==}
+    peerDependencies:
+      '@capacitor/core': '>=7.0.0'
 
   '@esbuild/aix-ppc64@0.25.1':
     resolution: {integrity: sha512-kfYGy8IdzTGy+z0vFGvExZtxkFlA4zAxgKEahG9KE1ScBjpQnFsNOX8KTU5ojNru5ed5CVoJYXFtoxaq5nFbjQ==}
@@ -1439,6 +1447,10 @@ snapshots:
   '@capacitor/core@7.4.0':
     dependencies:
       tslib: 2.8.1
+
+  '@capacitor/preferences@7.0.1(@capacitor/core@7.4.0)':
+    dependencies:
+      '@capacitor/core': 7.4.0
 
   '@esbuild/aix-ppc64@0.25.1':
     optional: true
