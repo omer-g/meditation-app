@@ -19,3 +19,7 @@ body {
 .play.hide {
     opacity: 0;
 }
+
+.big-button:active {
+    transform: none !important;
+}
