@@ -1,13 +1,18 @@
 {
-  "name": "vite-min-template",
+  "name": "meditation-gong",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build:web": "pnpm build",
+    "sync:capacitor": "npx cap sync android",
+    "build:android": "dotenv -- cmd /c \"cd android && gradlew assembleRelease\"",
+    "sync:android-version": "node sync-android-version.js",
+    "release": "dotenv pnpm release-it --"
   },
   "dependencies": {
     "@capacitor/android": "^7.4.0",
@@ -19,6 +24,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
+    "react-router-dom": "^7.6.3",
     "zustand": "^5.0.6"
   },
   "devDependencies": {
@@ -27,9 +33,12 @@
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.5.2",
+    "dotenv-cli": "^8.0.0",
     "postcss": "^8.5.5",
     "postcss-preset-mantine": "1.17.0",
     "postcss-simple-vars": "^7.0.1",
+    "release-it": "^19.0.3",
+    "release-it-pnpm": "^4.6.6",
     "typescript": "^5.8.3",
     "vite": "^6.3.5"
   },
