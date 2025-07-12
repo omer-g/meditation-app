@@ -3,7 +3,7 @@ import { Button } from "@mantine/core";
 import { useRef } from "react";
 import { IoPlaySharp } from "react-icons/io5";
 import { useClickOutside } from "@/hooks/useClickOutside";
-
+import { useAudioStateSync } from "@/hooks/useAudioStateSync";
 
 export const ActionButton = () => {
   const duration = useAppStore((s) => s.duration);
@@ -15,22 +15,28 @@ export const ActionButton = () => {
   const durationHydrated = useAppStore((s) => s.durationHydrated);
 
 
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  useAudioStateSync(audioRef);
 
   const playAudio = (minutes: number) => {
     if (audioRef.current) {
       audioRef.current.src = `/audio/timer-${minutes}-min.mp3`;
-      audioRef.current.play();
+      audioRef.current.play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch(() => {
+          setIsPlaying(false);
+        });
     }
-  }
+  };
 
   const stopAudio = () => {
     if (audioRef.current) {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
-
-      // Hide progress bar for next time
       setShowProgress(false);
+      setIsPlaying(false);
     }
   }
 
@@ -44,6 +50,8 @@ export const ActionButton = () => {
   const playButtonRef = useClickOutside<HTMLButtonElement>(() => {
     toggleShowProgress();
   }, isPlaying)
+
+
 
 
   return (
@@ -64,12 +72,9 @@ export const ActionButton = () => {
         }}
         variant="filled"
         onClick={() => {
-          const newPlayStatus = !isPlaying;
-          setIsPlaying(newPlayStatus);
-          if (newPlayStatus) {
+          if (!isPlaying) {
             playAudio(duration);
-          }
-          if (!newPlayStatus) {
+          } else {
             stopAudio();
           }
         }}

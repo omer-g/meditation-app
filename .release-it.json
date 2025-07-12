@@ -1,0 +1,18 @@
+{
+  "plugins": {
+    "release-it-pnpm": {}
+  },
+  "git": {
+    "commitMessage": "chore: release v${version}",
+    "tagName": "v${version}"
+  },
+  "hooks": {
+    "before:commit": "node sync-android-version.js && pnpm build:web && pnpm sync:capacitor && pnpm build:android"
+  },
+  "github": {
+    "release": false,
+    "assets": [
+      "android/app/build/outputs/apk/release/app-release.apk"
+    ]
+  }
+}
