@@ -21,7 +21,7 @@ The app is also available as a [phone app](https://github.com/omer-g/meditation-
 
 - Pressing the round button again stops the timer
 - Clicking outside the round button toggles a progress bar
-- Playing music on phone or an incoming call will stop the timer (DND recommended)
+- Playing music on phone will stop the timer
 
 ## License
 
