@@ -47,7 +47,7 @@ export default function Website() {
             Clicking outside the round button toggles a progress bar
           </List.Item>
           <List.Item>
-            Playing music on phone or an incoming call will stop the timer (DND recommended)
+            Playing music on phone during a session will stop the timer (DND recommended)
           </List.Item>
         </AccentList>
         <Title order={5}>Code</Title>
